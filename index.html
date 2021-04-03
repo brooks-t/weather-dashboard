@@ -12,22 +12,27 @@
 </head>
 
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
-
-    <main class="container row vh-100">
-        <section class="col-4 bg-light" id="search-section">
-            <h3>Search for a City:</h3>
-            <form id="search-form">
-                <input type="text" id="search-field">
-                <button type="button" id="search-button">
-                    Search
-                </button>
-              </form>
-        </section>
-
-    </main>
+    <div class="container-fluid">
+        <header class="d-flex row justify-content-center">
+            <h1>Weather Dashboard</h1>
+        </header>
+    
+        <main class="row vh-100">
+            <section class="col-3 bg-light" id="search-section">
+                <h3>Search for a City:</h3>
+                <form id="search-form">
+                    <input type="text" id="search-field">
+                    <button type="button" id="search-button">
+                        Search
+                    </button>
+                  </form>
+            </section>
+            <section class="col-9 bg-light vh-100">
+                <h1 id="city">Search Result</h1>
+            </section>
+        </main>
+    </div>
+    
     
 
 

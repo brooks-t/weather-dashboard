@@ -6,10 +6,6 @@ var tempResult = document.querySelector('#temp-result');
 var humidResult = document.querySelector('#humid-result');
 var windResult = document.querySelector('#wind-result');
 var uvResult = document.querySelector('#uv-result');
-var cardHeader = document.querySelector('#card-header');
-var cardIcon = document.querySelector('#card-icon');
-var cardTemp = document.querySelector('#card-temp');
-var cardHumid = document.querySelector('#card-humid');
 
 var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
@@ -64,16 +60,14 @@ searchButton.addEventListener('click', function(event) {
             return response.json();
         })
         .then(function (data) {
+            var cardHeader1 = document.querySelector('#card-header-1');
+            var cardIcon1 = document.querySelector('#card-icon-1');
+            var cardTemp1 = document.querySelector('#card-temp-1');
+            var cardHumid1 = document.querySelector('#card-humid-1');
 
-            var day = 1;
-            foreDate = moment().add(day, 'd').format('L');
-
-            var foreTemp = data.list[8].main.temp;
-            var foreHumid = data.list[8].main.humidity;
-
-            cardHeader.textContent = foreDate;
-            cardTemp.textContent = 'Temp: ' + foreTemp + ' F';
-            cardHumid.textContent = 'Humidity: ' + foreHumid + '%';
+            cardHeader1.textContent = moment().add(1, 'd').format('L');
+            cardTemp1.textContent = 'Temp: ' + data.list[8].main.temp + ' F';
+            cardHumid1.textContent = 'Humidity: ' + data.list[8].main.humidity + '%';
         
         })
 })

@@ -1,6 +1,11 @@
 today = moment().format('L');
 var searchButton = document.querySelector('#search-button');
 var searchField = document.querySelector('#search-field');
+var headResult = document.querySelector('#results-header');
+var tempResult = document.querySelector('#temp-result');
+var humidResult = document.querySelector('#humid-result');
+var windResult = document.querySelector('#wind-result');
+var uvResult = document.querySelector('#uv-result');
 
 var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
@@ -38,7 +43,9 @@ function getForecast() {
 
 searchButton.addEventListener('click', function(event) {
     event.preventDefault();
-    var citySearch = searchField; 
+    var citySearch = searchField;
+    headResult.textContent = citySearch.value + ' ' + '(' + today + ')' + '⛅';
+
     console.log("Searched for: " + citySearch.value);
 
     var currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + citySearch.value + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
@@ -50,6 +57,18 @@ searchButton.addEventListener('click', function(event) {
         .then(function (data) {
             var cityLat = data.coord.lat;
             var cityLon = data.coord.lon;
+            var cityTemp = data.main.temp;
+            var cityHumid = data.main.humidity;
+            var cityWind = data.wind.speed;
+            var cityUv = 'TBD';
+
+            tempResult.textContent = 'Temperature: ' + cityTemp;
+            humidResult.textContent = 'Humidity: ' + cityHumid + '%';
+            windResult.textContent = 'Wind Speed: ' + cityWind + 'MPH';
+            uvResult.textContent = 'UV Index: Unknown';
+
+            console.log('City Temp: ' + cityTemp);
+            console.log(typeof cityTemp);
             console.log('CURRENT WEATHER \n-------------');
             console.log(data);
             console.log(data.name);

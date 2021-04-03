@@ -13,11 +13,16 @@
 
 <body>
     <div class="container-fluid">
+
+        <!-- Weather Dashboard Banner -->
         <header class="d-flex row justify-content-center">
             <h1>Weather Dashboard</h1>
         </header>
-    
+
+        <!-- All other content -->
         <main class="row vh-100">
+
+            <!-- Search for a City section -->
             <section class="col-3 bg-light" id="search-section">
                 <h3>Search for a City:</h3>
                 <form id="search-form">
@@ -27,16 +32,85 @@
                     </button>
                   </form>
             </section>
+
+            <!-- Results div -->
             <div class="col-9 vh-100">
-                <section id="current-weather">
+
+                <!-- Current weather section -->
+                <section id="current-weather" class="bg-light">
                     <h2 id="results-header">CITY RESULTS</h2>
                     <p id="temp-result"></p>
                     <p id="humid-result"></p>
                     <p id="wind-result"></p>
                     <p id="uv-result"></p>
                 </section>
-                <section id="forecast-result">
-                    <h2>5-Day Forecast</h2>
+
+                <!-- 5-day forecast section -->
+                <section id="forecast-result" class="bg-light">
+                    <div id="forecast-header">
+                        <h2>5-Day Forecast:</h2>
+                    </div>
+
+                    <div id="cards-container" class="d-flex justify-content-around">
+                        <!-- Card 1 -->
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-1">
+                            <div class="card-header" id="card-header-1">Header</div>
+                            <div class="card-body">
+                            <i id="card-icon-1">🌧</i>
+                            <p id="card-temp-1"></p>
+                            <p id="card-humid-1"></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-2">
+                            <div class="card-header" id="card-header-2">Header</div>
+                            <div class="card-body">
+                                <i id="card-icon-2">🌧</i>
+                                <p id="card-temp-2"></p>
+                                <p id="card-humid-2"></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3 -->
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-3">
+                            <div class="card-header" id="card-header-3">Header</div>
+                            <div class="card-body">
+                                <i id="card-icon-3">🌧</i>
+                                <p id="card-temp-3"></p>
+                                <p id="card-humid-3"></p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-4">
+                            <div class="card-header" id="card-header-4">Header</div>
+                            <div class="card-body">
+                                <i id="card-icon-4">🌧</i>
+                                <p id="card-temp-4"></p>
+                                <p id="card-humid-4"></p>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-5">
+                            <div class="card-header" id="card-header-5">Header</div>
+                            <div class="card-body">
+                                <i id="card-icon-5">🌧</i>
+                                <p id="card-temp-5"></p>
+                                <p id="card-humid-5"></p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    
+                    
+                    
+                    
+
+
                 </section>
             </div>
         </main>

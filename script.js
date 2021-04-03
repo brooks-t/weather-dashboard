@@ -6,10 +6,12 @@ var tempResult = document.querySelector('#temp-result');
 var humidResult = document.querySelector('#humid-result');
 var windResult = document.querySelector('#wind-result');
 var uvResult = document.querySelector('#uv-result');
+var cardHeader = document.querySelector('#card-header');
+var cardIcon = document.querySelector('#card-icon');
+var cardTemp = document.querySelector('#card-temp');
+var cardHumid = document.querySelector('#card-humid');
 
 var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
-
-var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchField.value + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
 
 // not sure where the UV index is listed in the data returned here. there is a value key but not sure if that's it. the documentation says its a float longitude for returned data which doesn't make any sense because they give that to us with the 'lon' key.
@@ -25,20 +27,7 @@ function getUV() {
 }
 
 function getForecast() {
-    fetch(forecastCall)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        tomorrow = moment().add(1, 'd').format('L');
-        console.log('FORECAST \n-------------');
-        console.log(forecastCall);
-        console.log(data);
-        console.log(tomorrow);
-        console.log(data.list[8].weather[0].description);
-        console.log(data.list[8].main.temp);
-        console.log(data.list[8].main.humidity);
-    })
+    
 }
 
 searchButton.addEventListener('click', function(event) {
@@ -66,19 +55,26 @@ searchButton.addEventListener('click', function(event) {
             humidResult.textContent = 'Humidity: ' + cityHumid + '%';
             windResult.textContent = 'Wind Speed: ' + cityWind + 'MPH';
             uvResult.textContent = 'UV Index: Unknown';
+        })
 
-            console.log('City Temp: ' + cityTemp);
-            console.log(typeof cityTemp);
-            console.log('CURRENT WEATHER \n-------------');
-            console.log(data);
-            console.log(data.name);
-            console.log(today);
-            console.log(data.main.temp);
-            console.log(data.main.humidity);
-            console.log(data.wind.speed);
-            console.log(data.weather[0].description);
-            console.log(cityLat);
-            console.log(cityLon);
+        var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + citySearch.value + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
+
+        fetch(forecastCall)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+
+            var day = 1;
+            foreDate = moment().add(day, 'd').format('L');
+
+            var foreTemp = data.list[8].main.temp;
+            var foreHumid = data.list[8].main.humidity;
+
+            cardHeader.textContent = foreDate;
+            cardTemp.textContent = 'Temp: ' + foreTemp + ' F';
+            cardHumid.textContent = 'Humidity: ' + foreHumid + '%';
+        
         })
 })
 
@@ -109,3 +105,12 @@ weather icon
 temperature
 humidity
 */ 
+
+/*
+console.log('FORECAST \n-------------');
+console.log(forecastCall);
+console.log(data);
+console.log(data.list[8].weather[0].description);
+console.log(data.list[8].main.temp);
+console.log(data.list[8].main.humidity);
+*/

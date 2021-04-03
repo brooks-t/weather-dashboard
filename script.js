@@ -4,7 +4,7 @@ currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=Seattle&u
 
 uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
-forecastCall = 'api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=8b9474b76db97cf9c54177ce617e7e88';
+forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=8b9474b76db97cf9c54177ce617e7e88';
 
 
 
@@ -16,7 +16,7 @@ function getApi() {
     .then(function (data) {
         var cityLat = data.coord.lat;
         var cityLon = data.coord.lon;
-        console.log('Fetch Response \n-------------');
+        console.log('CURRENT WEATHER \n-------------');
         console.log(data);
         console.log(data.name);
         console.log(today);
@@ -36,25 +36,27 @@ function getUV() {
     return response.json();
   })
   .then(function (data) {
-    console.log('Fetch Response \n-------------');
+    console.log('UV INDEX \n-------------');
     console.log(data);
   })
 }
 
 function getForecast() {
     fetch(forecastCall)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log('Fetch Response \n-------------');
-    console.log(data);
-  })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log('FORECAST \n-------------');
+        console.log(data);
+    })
 }
 
 getApi();
 
 getUV();
+
+getForecast();
 
 
 /*for(i = 0; i < data.length; i++) {

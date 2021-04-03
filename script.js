@@ -22,10 +22,6 @@ function getUV() {
   })
 }
 
-function getForecast() {
-    
-}
-
 searchButton.addEventListener('click', function(event) {
     event.preventDefault();
     var citySearch = searchField;
@@ -60,14 +56,55 @@ searchButton.addEventListener('click', function(event) {
             return response.json();
         })
         .then(function (data) {
+            // Day 1
             var cardHeader1 = document.querySelector('#card-header-1');
             var cardIcon1 = document.querySelector('#card-icon-1');
             var cardTemp1 = document.querySelector('#card-temp-1');
             var cardHumid1 = document.querySelector('#card-humid-1');
 
             cardHeader1.textContent = moment().add(1, 'd').format('L');
-            cardTemp1.textContent = 'Temp: ' + data.list[8].main.temp + ' F';
-            cardHumid1.textContent = 'Humidity: ' + data.list[8].main.humidity + '%';
+            cardTemp1.textContent = 'Temp: ' + data.list[7].main.temp + ' F';
+            cardHumid1.textContent = 'Humidity: ' + data.list[7].main.humidity + '%';
+
+            // Day 2
+            var cardHeader2 = document.querySelector('#card-header-2');
+            var cardIcon2 = document.querySelector('#card-icon-2');
+            var cardTemp2 = document.querySelector('#card-temp-2');
+            var cardHumid2 = document.querySelector('#card-humid-2');
+
+            cardHeader2.textContent = moment().add(2, 'd').format('L');
+            cardTemp2.textContent = 'Temp: ' + data.list[15].main.temp + ' F';
+            cardHumid2.textContent = 'Humidity: ' + data.list[15].main.humidity + '%';
+
+            // Day 3
+            var cardHeader3 = document.querySelector('#card-header-3');
+            var cardIcon3 = document.querySelector('#card-icon-3');
+            var cardTemp3 = document.querySelector('#card-temp-3');
+            var cardHumid3 = document.querySelector('#card-humid-3');
+
+            cardHeader3.textContent = moment().add(3, 'd').format('L');
+            cardTemp3.textContent = 'Temp: ' + data.list[23].main.temp + ' F';
+            cardHumid3.textContent = 'Humidity: ' + data.list[23].main.humidity + '%';
+
+            // Day 4
+            var cardHeader4 = document.querySelector('#card-header-4');
+            var cardIcon4 = document.querySelector('#card-icon-4');
+            var cardTemp4 = document.querySelector('#card-temp-4');
+            var cardHumid4 = document.querySelector('#card-humid-4');
+
+            cardHeader4.textContent = moment().add(4, 'd').format('L');
+            cardTemp4.textContent = 'Temp: ' + data.list[31].main.temp + ' F';
+            cardHumid4.textContent = 'Humidity: ' + data.list[31].main.humidity + '%';
+
+            // Day 5
+            var cardHeader5 = document.querySelector('#card-header-5');
+            var cardIcon5 = document.querySelector('#card-icon-5');
+            var cardTemp5 = document.querySelector('#card-temp-5');
+            var cardHumid5 = document.querySelector('#card-humid-5');
+
+            cardHeader5.textContent = moment().add(5, 'd').format('L');
+            cardTemp5.textContent = 'Temp: ' + data.list[39].main.temp + ' F';
+            cardHumid5.textContent = 'Humidity: ' + data.list[39].main.humidity + '%';
         
         })
 })

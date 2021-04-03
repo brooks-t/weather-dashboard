@@ -1,4 +1,6 @@
 today = moment().format('L');
+var searchField = document.querySelector('#search-field');
+var searchButton = document.querySelector('#search-button');
 
 currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=Seattle&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
@@ -8,7 +10,7 @@ forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=Seattle&units=
 
 
 
-function getApi() {
+function getWeather() {
     fetch(currentWeatherCall)
     .then(function (response) {
         return response.json();
@@ -57,11 +59,16 @@ function getForecast() {
     })
 }
 
-getApi();
-
 //getUV();
 
-getForecast();
+
+// TODO: finish building this event listener for search button
+searchButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log("search button clicked!");
+    getWeather();
+    getForecast();
+})
 
 
 /*for(i = 0; i < data.length; i++) {

@@ -4,7 +4,7 @@ currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=Seattle&u
 
 uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
-forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=8b9474b76db97cf9c54177ce617e7e88';
+forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=Seattle&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
 
 
@@ -47,14 +47,19 @@ function getForecast() {
         return response.json();
     })
     .then(function (data) {
+        tomorrow = moment().add(1, 'd').format('L');
         console.log('FORECAST \n-------------');
         console.log(data);
+        console.log(tomorrow);
+        console.log(data.list[8].weather[0].description);
+        console.log(data.list[8].main.temp);
+        console.log(data.list[8].main.humidity);
     })
 }
 
 getApi();
 
-getUV();
+//getUV();
 
 getForecast();
 

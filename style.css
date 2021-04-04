@@ -1,3 +1,11 @@
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+}
+
 header {
     background-color: darkslategray;
     padding: 1%;
@@ -11,10 +19,13 @@ header h1 {
 #search-section {
     padding: 20px;
     border: 1px solid gainsboro;
+    height: 82vh;
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
 #search-field {
-    width: 60%;
+    width: 70%;
     border-radius: 5px;
     border: 1px solid gainsboro;
     padding: 10px 5px 10px 5px;
@@ -40,7 +51,7 @@ header h1 {
     justify-content: space-around;
     margin-top: 20px;
     padding: 0 20px 20px 20px;
-    height: 50%;
+    height: 40vh;
     border: 1px solid gainsboro;
     border-radius: 5px;
 }
@@ -54,12 +65,14 @@ header h1 {
     font-size: 130%;
 }
 
+
+
 #forecast-result {
     border: 1px solid gainsboro;
     margin-top: 20px;
     border-radius: 5px;
     padding: 20px;
-    height: 35%;
+    height: 40vh;
 }
 
 #forecast-header h3 {

@@ -15,19 +15,6 @@ var searchAgain;
 
 var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
-
-// not sure where the UV index is listed in the data returned here. there is a value key but not sure if that's it. the documentation says its a float longitude for returned data which doesn't make any sense because they give that to us with the 'lon' key.
-function getUV() {
-    fetch(uvCall)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log('UV INDEX \n-------------');
-    console.log(data);
-  })
-}
-
 // retrieving stored searches from localStorage and building list
 function storedCities() {
     if (localStorage.getItem('storedCities') == null) {
@@ -67,7 +54,6 @@ function searchWeather(event) {
             var cityTemp = data.main.temp;
             var cityHumid = data.main.humidity;
             var cityWind = data.wind.speed;
-            var cityUv = 'TBD';
 
             headResult.textContent = searchCity + ' ' + '(' + today + ')';
             currentIcon = 'http://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
@@ -75,8 +61,18 @@ function searchWeather(event) {
             tempResult.textContent = 'Temperature: ' + cityTemp;
             humidResult.textContent = 'Humidity: ' + cityHumid + '%';
             windResult.textContent = 'Wind Speed: ' + cityWind + 'MPH';
-            uvResult.textContent = 'UV Index: Unknown';
-            console.log(data);
+            
+            var getUV = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&exclude=minutely,hourly,daily,alerts&appid=8b9474b76db97cf9c54177ce617e7e88';
+
+            fetch(getUV)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    var cityUV = data.current.uvi;
+                    uvResult.textContent = 'UV Index: ' + cityUV;
+                })
         })
 
         var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
@@ -175,7 +171,6 @@ function searchHistory(event) {
             var cityTemp = data.main.temp;
             var cityHumid = data.main.humidity;
             var cityWind = data.wind.speed;
-            var cityUv = 'TBD';
 
             headResult.textContent = searchAgain + ' ' + '(' + today + ')';
             currentIcon = 'http://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
@@ -183,7 +178,18 @@ function searchHistory(event) {
             tempResult.textContent = 'Temperature: ' + cityTemp;
             humidResult.textContent = 'Humidity: ' + cityHumid + '%';
             windResult.textContent = 'Wind Speed: ' + cityWind + 'MPH';
-            uvResult.textContent = 'UV Index: Unknown';
+            
+            var getUV = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&exclude=minutely,hourly,daily,alerts&appid=8b9474b76db97cf9c54177ce617e7e88';
+
+            fetch(getUV)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    var cityUV = data.current.uvi;
+                    uvResult.textContent = 'UV Index: ' + cityUV;
+                })
         })
 
         var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchAgain + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';

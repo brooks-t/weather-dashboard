@@ -62,7 +62,8 @@ header h1 {
     height: 35%;
 }
 
-#forecast-header {
+#forecast-header h3 {
+    font-size: 130%;
 }
 
 #cards-container {
@@ -72,10 +73,15 @@ header h1 {
 
 .card {
     width: 15%;
+    height: 100%;
 }
 
 .card img {
     width: 50%;
+}
+
+.card p {
+    padding-left: 10px;
 }
 
 #past-search {

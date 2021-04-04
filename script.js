@@ -177,7 +177,7 @@ function searchHistory(event) {
             var cityWind = data.wind.speed;
             var cityUv = 'TBD';
 
-            headResult.textContent = searchCity + ' ' + '(' + today + ')';
+            headResult.textContent = searchAgain + ' ' + '(' + today + ')';
             currentIcon = 'http://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
             document.getElementById('current-icon').src = currentIcon;
             tempResult.textContent = 'Temperature: ' + cityTemp;

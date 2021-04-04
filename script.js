@@ -38,9 +38,7 @@ function storedCities() {
     }
 }
 
-storedCities();
-
-searchButton.addEventListener('click', function(event) {
+function searchWeather(event) {
     event.preventDefault();
 
     headResult.textContent = searchField.value + ' ' + '(' + today + ')' + '⛅';
@@ -131,8 +129,20 @@ searchButton.addEventListener('click', function(event) {
             cardHumid5.textContent = 'Humidity: ' + data.list[39].main.humidity + '%';
         
         })
-})
+}
 
+storedCities();
+
+searchButton.addEventListener('click', searchWeather);
+
+/*
+pastSearch.addEventListener("click", function(event) {
+    event.stopPropagation();
+    var element = event.target;
+    if (element.matches('li')) {
+
+    }
+}*/
 
 //getUV();
 

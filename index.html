@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
   <link rel="stylesheet" type="text/css" href="./style.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
 </script>
@@ -28,7 +34,7 @@
                 <form id="search-form">
                     <input type="text" id="search-field">
                     <button type="button" id="search-button">
-                        Search
+                        <i class="fas fa-search"></i>
                     </button>
                 </form>
 
@@ -44,11 +50,14 @@
 
                 <!-- Current weather section -->
                 <section id="current-weather" class="bg-light">
-                    <h2 id="results-header">CITY RESULTS</h2>
-                    <p id="temp-result"></p>
-                    <p id="humid-result"></p>
-                    <p id="wind-result"></p>
-                    <p id="uv-result"></p>
+                    <div id="current-weather-header">
+                        <h2 id="results-header">Your City | Date | </h2>
+                    <img id='current-icon' src='http://openweathermap.org/img/wn/10d@2x.png'>
+                    </div>
+                    <p id="temp-result">Temperature:</p>
+                    <p id="humid-result">Humidity: </p>
+                    <p id="wind-result">Wind Speed: </p>
+                    <p id="uv-result"> UV Index: </p>
                 </section>
 
                 <!-- 5-day forecast section -->
@@ -57,12 +66,12 @@
                         <h2>5-Day Forecast:</h2>
                     </div>
 
-                    <div id="cards-container" class="d-flex justify-content-around">
+                    <div id="cards-container" class="d-flex justify-content-between">
                         <!-- Card 1 -->
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-1">
                             <div class="card-header" id="card-header-1">Header</div>
-                            <div class="card-body">
-                            <i id="card-icon-1">🌧</i>
+                            <div>
+                            <img id="card-icon-1" src="http://openweathermap.org/img/wn/10d@2x.png">
                             <p id="card-temp-1"></p>
                             <p id="card-humid-1"></p>
                             </div>
@@ -71,8 +80,8 @@
                         <!-- Card 2 -->
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-2">
                             <div class="card-header" id="card-header-2">Header</div>
-                            <div class="card-body">
-                                <i id="card-icon-2">🌧</i>
+                            <div>
+                                <img id="card-icon-2" src="http://openweathermap.org/img/wn/10d@2x.png">
                                 <p id="card-temp-2"></p>
                                 <p id="card-humid-2"></p>
                             </div>
@@ -81,8 +90,8 @@
                         <!-- Card 3 -->
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-3">
                             <div class="card-header" id="card-header-3">Header</div>
-                            <div class="card-body">
-                                <i id="card-icon-3">🌧</i>
+                            <div>
+                                <img id="card-icon-3" src="http://openweathermap.org/img/wn/10d@2x.png">
                                 <p id="card-temp-3"></p>
                                 <p id="card-humid-3"></p>
                             </div>
@@ -91,8 +100,8 @@
                         <!-- Card 4 -->
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-4">
                             <div class="card-header" id="card-header-4">Header</div>
-                            <div class="card-body">
-                                <i id="card-icon-4">🌧</i>
+                            <div>
+                                <img id="card-icon-4" src="http://openweathermap.org/img/wn/10d@2x.png">
                                 <p id="card-temp-4"></p>
                                 <p id="card-humid-4"></p>
                             </div>
@@ -101,8 +110,8 @@
                         <!-- Card 5 -->
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-5">
                             <div class="card-header" id="card-header-5">Header</div>
-                            <div class="card-body">
-                                <i id="card-icon-5">🌧</i>
+                            <div>
+                                <img id="card-icon-5" src="http://openweathermap.org/img/wn/10d@2x.png">
                                 <p id="card-temp-5"></p>
                                 <p id="card-humid-5"></p>
                             </div>

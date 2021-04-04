@@ -131,20 +131,20 @@ function searchWeather(event) {
         })
 }
 
+function searchHistory(event) {
+    event.stopPropagation();
+    var element = event.target;
+    if (element.matches('li')) {
+        searchField = event.target.textContent;
+        console.log("You searched for " + searchField + " again!");
+    }
+}
+
 storedCities();
 
 searchButton.addEventListener('click', searchWeather);
 
-/*
-pastSearch.addEventListener("click", function(event) {
-    event.stopPropagation();
-    var element = event.target;
-    if (element.matches('li')) {
-
-    }
-}*/
-
-//getUV();
+pastSearch.addEventListener('click', searchHistory);
 
 
 // TODO: finish building this event listener for search button

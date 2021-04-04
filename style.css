@@ -25,3 +25,21 @@ header h1 {
 #forecast-header {
     border: 1px solid yellow;
 }
+
+#past-search {
+    border: 1px solid blue;
+    padding: 0;
+}
+
+#past-search li {
+    list-style-type: none;
+    border: 1px solid turquoise;
+    margin-top: 10px;
+    padding: 5px 0 5px 0;
+}
+
+#past-search li:hover {
+    transform: scale(1.05);
+    opacity: 50%;
+    font-weight: bold;
+}

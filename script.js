@@ -6,6 +6,10 @@ var tempResult = document.querySelector('#temp-result');
 var humidResult = document.querySelector('#humid-result');
 var windResult = document.querySelector('#wind-result');
 var uvResult = document.querySelector('#uv-result');
+var pastSearch = document.querySelector('#past-search');
+var storedCities = localStorage.getItem('storedCities'); //TODO: keep this top of mind
+var cityArray = []; // TODO: keep this top of mind
+console.log("This is what was stored before: " + storedCities );
 
 var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
@@ -22,12 +26,32 @@ function getUV() {
   })
 }
 
+// TODO: You're really close to locking this down - keep pushing here. You were about to try with JSON stringify and parse after a bit more troubleshooting.
 searchButton.addEventListener('click', function(event) {
     event.preventDefault();
     var citySearch = searchField;
     headResult.textContent = citySearch.value + ' ' + '(' + today + ')' + '⛅';
-
     console.log("Searched for: " + citySearch.value);
+    cityArray.push(storedCities);
+    console.log("After pushing city array: " + storedCities);
+
+    cityArray.push(citySearch.value);
+    console.log("After adding new search city: " + cityArray);
+    console.log(typeof cityArray);
+    console.log("Looking for second city in array: " + cityArray[1]);
+    localStorage.setItem('storedCities', cityArray);
+
+    /*if (storedCities === null) {
+        storedCities = [];
+        storedCities.push(citySearch.value);
+        localStorage.setItem('storedCities', storedCities);
+        console.log("First time going in: " + storedCities);
+    } else {
+        storedCities.push(citySearch.value);
+        localStorage.setItem('storedCities', storedCities);
+        console.log("I'm not the first: " + storedCities);
+    }*/
+
 
     var currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + citySearch.value + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 

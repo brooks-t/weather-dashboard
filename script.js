@@ -9,6 +9,7 @@ var uvResult = document.querySelector('#uv-result');
 var pastSearch = document.querySelector('#past-search');
 var currentIcon = document.querySelector('#current-icon').src;
 var weatherIcon = document.getElementById('#current-icon');
+var uvCondition = document.querySelector('#uv-condition');
 var searchCity;
 var searchAgain;
 
@@ -71,7 +72,15 @@ function searchWeather(event) {
                 .then(function (data) {
                     console.log(data);
                     var cityUV = data.current.uvi;
-                    uvResult.textContent = 'UV Index: ' + cityUV;
+                    uvCondition.textContent = cityUV;
+
+                    if (cityUV < 3) {
+                        uvCondition.setAttribute('style', 'background-color: green');
+                    } else if (cityUV > 2 && cityUV < 6) {
+                        uvCondition.setAttribute('style', 'background-color: yellow');
+                    } else {
+                        uvCondition.setAttribute('style', 'background-color: red');
+                    }
                 })
         })
 
@@ -188,7 +197,15 @@ function searchHistory(event) {
                 .then(function (data) {
                     console.log(data);
                     var cityUV = data.current.uvi;
-                    uvResult.textContent = 'UV Index: ' + cityUV;
+                    uvCondition.textContent = cityUV;
+
+                    if (cityUV < 3) {
+                        uvCondition.setAttribute('style', 'background-color: green');
+                    } else if (cityUV > 2 && cityUV < 6) {
+                        uvCondition.setAttribute('style', 'background-color: yellow');
+                    } else {
+                        uvCondition.setAttribute('style', 'background-color: red');
+                    }
                 })
         })
 

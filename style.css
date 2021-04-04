@@ -65,7 +65,11 @@ header h1 {
     font-size: 130%;
 }
 
-
+#uv-condition {
+    padding: 3px;
+    border-radius: 5px;
+    color: white;
+}
 
 #forecast-result {
     border: 1px solid gainsboro;

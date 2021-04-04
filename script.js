@@ -8,9 +8,6 @@ var windResult = document.querySelector('#wind-result');
 var uvResult = document.querySelector('#uv-result');
 var pastSearch = document.querySelector('#past-search');
 
-//var storedCities = localStorage.getItem('storedCities'); //TODO: keep this top of mind
-//var cityArray = []; // TODO: keep this top of mind
-//console.log("This is what was stored before: " + storedCities );
 
 var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
@@ -27,27 +24,34 @@ function getUV() {
   })
 }
 
+// retrieving stored searches from localStorage and building list
 function storedCities() {
+    if (localStorage.getItem('storedCities') == null) {
+        localStorage.setItem('storedCities', '[]');
+    }
+    var storedCities = JSON.parse(localStorage.getItem('storedCities'));
 
+    for (i = 0; i < storedCities.length; i++) {
+        var savedCity = document.createElement('li');
+        savedCity.textContent = storedCities[i];
+        pastSearch.appendChild(savedCity);
+    }
 }
 
-// TODO: You're really close to locking this down - keep pushing here. You were about to try with JSON stringify and parse after a bit more troubleshooting.
+storedCities();
+
 searchButton.addEventListener('click', function(event) {
     event.preventDefault();
 
     headResult.textContent = searchField.value + ' ' + '(' + today + ')' + '⛅';
 
-    /*if (storedCities == null) {
-        storedCities = [];
-        storedCities.push(citySearch.value);
-        localStorage.setItem('storedCities', storedCities);
-        console.log("First time going in: " + storedCities);
-    } else {
-        storedCities.push(citySearch.value);
-        localStorage.setItem('storedCities', storedCities);
-        console.log("I'm not the first: " + storedCities);
-    }*/
+    var storedCities = JSON.parse(localStorage.getItem('storedCities'));
+    storedCities.push(searchField.value);
+    localStorage.setItem('storedCities', JSON.stringify(storedCities));
 
+    var savedCity = document.createElement('li');
+    savedCity.textContent = storedCities[i];
+    pastSearch.appendChild(savedCity);
 
     var currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + searchField.value + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 

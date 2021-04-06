@@ -77,7 +77,7 @@ function searchWeather(event) {
                     if (cityUV < 3) {
                         uvCondition.setAttribute('style', 'background-color: green');
                     } else if (cityUV > 2 && cityUV < 6) {
-                        uvCondition.setAttribute('style', 'background-color: yellow');
+                        uvCondition.setAttribute('style', 'background-color: yellow; color: black');
                     } else {
                         uvCondition.setAttribute('style', 'background-color: red');
                     }
@@ -202,7 +202,7 @@ function searchHistory(event) {
                     if (cityUV < 3) {
                         uvCondition.setAttribute('style', 'background-color: green');
                     } else if (cityUV > 2 && cityUV < 6) {
-                        uvCondition.setAttribute('style', 'background-color: yellow');
+                        uvCondition.setAttribute('style', 'background-color: yellow; color: black');
                     } else {
                         uvCondition.setAttribute('style', 'background-color: red');
                     }

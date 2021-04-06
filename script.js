@@ -1,5 +1,6 @@
 today = moment().format('L');
 var searchButton = document.querySelector('#search-button');
+var searchForm = document.querySelector('#search-form');
 var searchField = document.querySelector('#search-field');
 var headResult = document.querySelector('#results-header');
 var tempResult = document.querySelector('#temp-result');
@@ -30,10 +31,12 @@ function storedCities() {
     }
 }
 
+// get weather conditions
 function searchWeather(event) {
     event.preventDefault();
     searchCity = searchField.value;
     
+    // check for stored searches and store new one
     var storedCities = JSON.parse(localStorage.getItem('storedCities'));
     storedCities.push(searchField.value);
     localStorage.setItem('storedCities', JSON.stringify(storedCities));
@@ -44,6 +47,7 @@ function searchWeather(event) {
 
     var currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
+    // get current weather
     fetch(currentWeatherCall)
         .then(function (response) {
             return response.json();
@@ -56,6 +60,7 @@ function searchWeather(event) {
             var cityHumid = data.main.humidity;
             var cityWind = data.wind.speed;
 
+            // display current weather for searched city
             headResult.textContent = searchCity + ' ' + '(' + today + ')';
             currentIcon = 'http://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
             document.getElementById('current-icon').src = currentIcon;
@@ -63,8 +68,10 @@ function searchWeather(event) {
             humidResult.textContent = 'Humidity: ' + cityHumid + '%';
             windResult.textContent = 'Wind Speed: ' + cityWind + 'MPH';
             
+           
             var getUV = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&exclude=minutely,hourly,daily,alerts&appid=8b9474b76db97cf9c54177ce617e7e88';
 
+             // get UV index
             fetch(getUV)
                 .then(function(response) {
                     return response.json();
@@ -74,6 +81,7 @@ function searchWeather(event) {
                     var cityUV = data.current.uvi;
                     uvCondition.textContent = cityUV;
 
+                    // set color indicator for uv index
                     if (cityUV < 3) {
                         uvCondition.setAttribute('style', 'background-color: green');
                     } else if (cityUV > 2 && cityUV < 6) {
@@ -86,6 +94,7 @@ function searchWeather(event) {
 
         var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
+        // get 5 day forecast
         fetch(forecastCall)
         .then(function (response) {
             return response.json();
@@ -158,6 +167,7 @@ function searchWeather(event) {
         })
 }
 
+// use past saved search
 function searchHistory(event) {
     event.stopPropagation();
     var element = event.target;
@@ -289,13 +299,7 @@ searchButton.addEventListener('click', searchWeather);
 
 pastSearch.addEventListener('click', searchHistory);
 
-// TODO: Need to figure out how to get the enter button to work for search.
-/*searchField.addEventListener('keyup', function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        searchButton.click();
-    }
-});*/
+searchForm.addEventListener('submit', searchWeather);
 
 
 

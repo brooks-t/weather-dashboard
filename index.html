@@ -46,27 +46,27 @@
 
 
             <!-- Results div -->
-            <div class="col-9">
+            <div class="col-9" id="results-div">
 
                 <!-- Current weather section -->
                 <section id="current-weather" class="bg-light">
-                    <div id="current-weather-header">
+                    <div id="current-weather-header" class="dimmer-switch">
                         <h2 id="results-header">Your City | Date | </h2>
                     <img id='current-icon' src='http://openweathermap.org/img/wn/10d@2x.png'>
                     </div>
-                    <p id="temp-result">Temperature:</p>
-                    <p id="humid-result">Humidity: </p>
-                    <p id="wind-result">Wind Speed: </p>
-                    <p id="uv-result">UV Index: <span id="uv-condition"></span></p>
+                    <p id="temp-result" class="dimmer-switch">Temperature:</p>
+                    <p id="humid-result" class="dimmer-switch">Humidity: </p>
+                    <p id="wind-result" class="dimmer-switch">Wind Speed: </p>
+                    <p id="uv-result" class="dimmer-switch">UV Index: <span id="uv-condition"></span></p>
                 </section>
 
                 <!-- 5-day forecast section -->
                 <section id="forecast-result" class="bg-light">
                     <div id="forecast-header">
-                        <h3>5-Day Forecast:</h3>
+                        <h3 class="dimmer-switch">5-Day Forecast:</h3>
                     </div>
 
-                    <div id="cards-container" class="d-flex justify-content-between">
+                    <div id="cards-container" class="d-flex justify-content-between dimmer-switch">
                         <!-- Card 1 -->
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-1">
                             <div class="card-header" id="card-header-1">Date</div>

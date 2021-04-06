@@ -8,4 +8,4 @@ With this app you can search for the current weather and 5-day forcast of any ci
 
 Link: https://brooks-t.github.io/weather-dashboard/
 
-![weather app screen shot](weather-app.png)
+![weather app screen shot](./assets/img/weather-app.png)

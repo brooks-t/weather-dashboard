@@ -15,7 +15,7 @@ var searchCity;
 var searchAgain;
 
 
-var uvCall = 'http://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
+var uvCall = 'https://api.openweathermap.org/data/2.5/uvi?lat=47.6062&lon=-122.3321&appid=8b9474b76db97cf9c54177ce617e7e88';
 
 // retrieving stored searches from localStorage and building list
 function storedCities() {
@@ -45,7 +45,7 @@ function searchWeather(event) {
     savedCity.textContent = searchField.value;
     pastSearch.appendChild(savedCity);
 
-    var currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
+    var currentWeatherCall = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
     // get current weather
     fetch(currentWeatherCall)
@@ -92,7 +92,7 @@ function searchWeather(event) {
                 })
         })
 
-        var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
+        var forecastCall = 'https://api.openweathermap.org/data/2.5/forecast?q=' + searchCity + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
         // get 5 day forecast
         fetch(forecastCall)
@@ -177,7 +177,7 @@ function searchHistory(event) {
         console.log("You searched for " + searchAgain + " again!");
     }
 
-    var currentWeatherCall = 'http://api.openweathermap.org/data/2.5/weather?q=' + searchAgain + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
+    var currentWeatherCall = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchAgain + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
     fetch(currentWeatherCall)
         .then(function (response) {
@@ -219,7 +219,7 @@ function searchHistory(event) {
                 })
         })
 
-        var forecastCall = 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchAgain + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
+        var forecastCall = 'https://api.openweathermap.org/data/2.5/forecast?q=' + searchAgain + '&units=imperial&appid=8b9474b76db97cf9c54177ce617e7e88';
 
         fetch(forecastCall)
         .then(function (response) {

@@ -62,7 +62,7 @@ function searchWeather(event) {
 
             // display current weather for searched city
             headResult.textContent = searchCity + ' ' + '(' + today + ')';
-            currentIcon = 'http://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
+            currentIcon = 'https://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
             document.getElementById('current-icon').src = currentIcon;
             tempResult.textContent = 'Temperature: ' + cityTemp;
             humidResult.textContent = 'Humidity: ' + cityHumid + '%';
@@ -108,7 +108,7 @@ function searchWeather(event) {
 
             cardHeader1.textContent = moment().add(1, 'd').format('L');
             foreIcon1 = data.list[7].weather[0].icon;
-            cardIcon1 = 'http://openweathermap.org/img/wn/' + foreIcon1 + '@2x.png';
+            cardIcon1 = 'https://openweathermap.org/img/wn/' + foreIcon1 + '@2x.png';
             document.getElementById('card-icon-1').src =  cardIcon1;
             cardTemp1.textContent = 'Temp: ' + data.list[7].main.temp + ' F';
             cardHumid1.textContent = 'Humidity: ' + data.list[7].main.humidity + '%';
@@ -121,7 +121,7 @@ function searchWeather(event) {
 
             cardHeader2.textContent = moment().add(2, 'd').format('L');
             foreIcon2 = data.list[15].weather[0].icon;
-            cardIcon2 = 'http://openweathermap.org/img/wn/' + foreIcon2 + '@2x.png';
+            cardIcon2 = 'https://openweathermap.org/img/wn/' + foreIcon2 + '@2x.png';
             document.getElementById('card-icon-2').src =  cardIcon2;
             cardTemp2.textContent = 'Temp: ' + data.list[15].main.temp + ' F';
             cardHumid2.textContent = 'Humidity: ' + data.list[15].main.humidity + '%';
@@ -134,7 +134,7 @@ function searchWeather(event) {
 
             cardHeader3.textContent = moment().add(3, 'd').format('L');
             foreIcon3 = data.list[23].weather[0].icon;
-            cardIcon3 = 'http://openweathermap.org/img/wn/' + foreIcon3 + '@2x.png';
+            cardIcon3 = 'https://openweathermap.org/img/wn/' + foreIcon3 + '@2x.png';
             document.getElementById('card-icon-3').src =  cardIcon3;
             cardTemp3.textContent = 'Temp: ' + data.list[23].main.temp + ' F';
             cardHumid3.textContent = 'Humidity: ' + data.list[23].main.humidity + '%';
@@ -147,7 +147,7 @@ function searchWeather(event) {
 
             cardHeader4.textContent = moment().add(4, 'd').format('L');
             foreIcon4 = data.list[31].weather[0].icon;
-            cardIcon4 = 'http://openweathermap.org/img/wn/' + foreIcon4 + '@2x.png';
+            cardIcon4 = 'https://openweathermap.org/img/wn/' + foreIcon4 + '@2x.png';
             document.getElementById('card-icon-4').src =  cardIcon4;
             cardTemp4.textContent = 'Temp: ' + data.list[31].main.temp + ' F';
             cardHumid4.textContent = 'Humidity: ' + data.list[31].main.humidity + '%';
@@ -160,7 +160,7 @@ function searchWeather(event) {
 
             cardHeader5.textContent = moment().add(5, 'd').format('L');
             foreIcon5 = data.list[39].weather[0].icon;
-            cardIcon5 = 'http://openweathermap.org/img/wn/' + foreIcon5 + '@2x.png';
+            cardIcon5 = 'https://openweathermap.org/img/wn/' + foreIcon5 + '@2x.png';
             document.getElementById('card-icon-5').src =  cardIcon5;
             cardTemp5.textContent = 'Temp: ' + data.list[39].main.temp + ' F';
             cardHumid5.textContent = 'Humidity: ' + data.list[39].main.humidity + '%';
@@ -192,7 +192,7 @@ function searchHistory(event) {
             var cityWind = data.wind.speed;
 
             headResult.textContent = searchAgain + ' ' + '(' + today + ')';
-            currentIcon = 'http://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
+            currentIcon = 'https://openweathermap.org/img/wn/' + cityIcon + '@2x.png';
             document.getElementById('current-icon').src = currentIcon;
             tempResult.textContent = 'Temperature: ' + cityTemp;
             humidResult.textContent = 'Humidity: ' + cityHumid + '%';
@@ -234,7 +234,7 @@ function searchHistory(event) {
 
             cardHeader1.textContent = moment().add(1, 'd').format('L');
             foreIcon1 = data.list[7].weather[0].icon;
-            cardIcon1 = 'http://openweathermap.org/img/wn/' + foreIcon1 + '@2x.png';
+            cardIcon1 = 'https://openweathermap.org/img/wn/' + foreIcon1 + '@2x.png';
             document.getElementById('card-icon-1').src =  cardIcon1;
             cardTemp1.textContent = 'Temp: ' + data.list[7].main.temp + ' F';
             cardHumid1.textContent = 'Humidity: ' + data.list[7].main.humidity + '%';
@@ -247,7 +247,7 @@ function searchHistory(event) {
 
             cardHeader2.textContent = moment().add(2, 'd').format('L');
             foreIcon2 = data.list[15].weather[0].icon;
-            cardIcon2 = 'http://openweathermap.org/img/wn/' + foreIcon2 + '@2x.png';
+            cardIcon2 = 'https://openweathermap.org/img/wn/' + foreIcon2 + '@2x.png';
             document.getElementById('card-icon-2').src =  cardIcon2;
             cardTemp2.textContent = 'Temp: ' + data.list[15].main.temp + ' F';
             cardHumid2.textContent = 'Humidity: ' + data.list[15].main.humidity + '%';
@@ -260,7 +260,7 @@ function searchHistory(event) {
 
             cardHeader3.textContent = moment().add(3, 'd').format('L');
             foreIcon3 = data.list[23].weather[0].icon;
-            cardIcon3 = 'http://openweathermap.org/img/wn/' + foreIcon3 + '@2x.png';
+            cardIcon3 = 'https://openweathermap.org/img/wn/' + foreIcon3 + '@2x.png';
             document.getElementById('card-icon-3').src =  cardIcon3;
             cardTemp3.textContent = 'Temp: ' + data.list[23].main.temp + ' F';
             cardHumid3.textContent = 'Humidity: ' + data.list[23].main.humidity + '%';
@@ -273,7 +273,7 @@ function searchHistory(event) {
 
             cardHeader4.textContent = moment().add(4, 'd').format('L');
             foreIcon4 = data.list[31].weather[0].icon;
-            cardIcon4 = 'http://openweathermap.org/img/wn/' + foreIcon4 + '@2x.png';
+            cardIcon4 = 'https://openweathermap.org/img/wn/' + foreIcon4 + '@2x.png';
             document.getElementById('card-icon-4').src =  cardIcon4;
             cardTemp4.textContent = 'Temp: ' + data.list[31].main.temp + ' F';
             cardHumid4.textContent = 'Humidity: ' + data.list[31].main.humidity + '%';
@@ -286,7 +286,7 @@ function searchHistory(event) {
 
             cardHeader5.textContent = moment().add(5, 'd').format('L');
             foreIcon5 = data.list[39].weather[0].icon;
-            cardIcon5 = 'http://openweathermap.org/img/wn/' + foreIcon5 + '@2x.png';
+            cardIcon5 = 'https://openweathermap.org/img/wn/' + foreIcon5 + '@2x.png';
             document.getElementById('card-icon-5').src =  cardIcon5;
             cardTemp5.textContent = 'Temp: ' + data.list[39].main.temp + ' F';
             cardHumid5.textContent = 'Humidity: ' + data.list[39].main.humidity + '%';
